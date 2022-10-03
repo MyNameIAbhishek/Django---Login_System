@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lOGIN pAGE</title>
+</head>
+<body>
+
+    {%  for message in messages %}
+    <div class="alert alert-{{ messages.tags }} alert-dismissible fade show" role ="alert">
+        <strong>Message: </strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    {% endfor %}
+
+    <H3> WELCOME TO THE PAGE</H3>
+
+    {% if user.is_authenticated %}
+    <h3>HELLO {{ fname }}</h3>
+    <h2> You're succesfully Logged In. Bro </h2>
+    <button type =  "submit"><a href="/signout">sign out</a></button>
+
+    {% else %}
+    <button type =  "submit"><a href="/signin">sign in</a></button>
+    <button type =  "submit"><a href="/signup">sign up</a></button>
+    {% endif %}
+
+</body>
+</html>
